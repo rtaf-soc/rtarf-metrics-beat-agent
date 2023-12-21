@@ -1,0 +1,18 @@
+version: '3'
+services:
+  metricbeat:
+    image: docker.elastic.co/beats/metricbeat:8.11.3
+    privileged: true
+    user: root
+    command:
+    - metricbeat
+    - -e
+    env_file:
+      - .env
+    volumes:
+      - $(pwd)/configs/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+      - /proc:/hostfs/proc:ro
+      - /:/hostfs:ro
+    restart: always

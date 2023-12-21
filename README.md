@@ -1,1 +1,0 @@
-# rtarf-metrics-beat-agent
