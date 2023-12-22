@@ -16,20 +16,21 @@ metricbeat.autodiscover:
 
 metricbeat.modules:
 - module: docker
-  processes: ['.*']
   metricsets:
     - "container"
     - "cpu"
     - "diskio"
     - "healthcheck"
     - "info"
-    - "process"
     #- "image"
     - "memory"
     - "network"
   hosts: ["unix:///var/run/docker.sock"]
   period: 10s
   enabled: true
+- module: system
+  metricsets: ["process"]
+  processes: ['.*']
 
 processors:
   - add_cloud_metadata: ~
