@@ -1,5 +1,7 @@
 # from - https://raw.githubusercontent.com/elastic/beats/8.11/deploy/docker/metricbeat.docker.yml
 
+setup.dashboards.enabled: true
+
 metricbeat.config:
   modules:
     path: ${path.config}/modules.d/*.yml
