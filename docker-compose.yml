@@ -7,8 +7,10 @@ services:
     command:
       - metricbeat
       - -e
-    env_file:
-      - ./.env
+    environment:
+      - ES_HOST=${ES_HOST}
+      - ES_USER=${ES_USER}
+      - ES_PASSWORD=${ES_PASSWORD}
     volumes:
       - ./configs/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
