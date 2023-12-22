@@ -5,10 +5,10 @@ services:
     privileged: true
     user: root
     command:
-    - metricbeat
-    - -e
+      - metricbeat
+      - -e
     env_file:
-      - .env
+      - ./.env
     volumes:
       - ./configs/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
