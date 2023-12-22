@@ -1,6 +1,7 @@
 # from - https://raw.githubusercontent.com/elastic/beats/8.11/deploy/docker/metricbeat.docker.yml
 
 setup.dashboards.enabled: true
+setup.kibana.host: ${KB_HOST}
 
 metricbeat.config:
   modules:
