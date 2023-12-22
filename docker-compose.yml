@@ -7,16 +7,17 @@ services:
     command:
       - metricbeat
       - -e
+      - -system.hostfs=/hostfs
     env_file:
       - .env
-    #environment:
-    #  - ES_HOST=${ES_HOST}
-    #  - ES_USER=${ES_USER}
-    #  - ES_PASSWORD=${ES_PASSWORD}
+    environment:
+      - DBUS_SYSTEM_BUS_ADDRESS='unix:path=/hostfs/var/run/dbus/system_bus_socket'
+    network_mode: "host"
     volumes:
       - ./configs/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
       - /proc:/hostfs/proc:ro
+      - /var/run/dbus/system_bus_socket:/hostfs/var/run/dbus/system_bus_socket:ro
       - /:/hostfs:ro
     restart: always
