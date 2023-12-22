@@ -1,9 +1,5 @@
 #!/bin/bash
 
-cat << EOF >> .env
-HOMEDIR=${HOME}
-EOF
-
 TPL_FILE=configs/metricbeat-template.yml
 CFG_FILE=configs/metricbeat.yml
 
