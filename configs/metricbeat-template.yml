@@ -28,9 +28,25 @@ metricbeat.modules:
   hosts: ["unix:///var/run/docker.sock"]
   period: 10s
   enabled: true
+
 - module: system
-  metricsets: ["process"]
+  metricsets:
+    - "cpu"
+    - "load"
+    - "filesystem"
+    - "fsstat"
+    - "memory"
+    - "network"
+    - "process"
+    - "core"
+    - "diskio"
+    - "socket"
+  period: 5s
+  enabled: true
   processes: ['.*']
+  cpu.metrics:  ["percentages"]
+  core.metrics: ["percentages"]
+  process.cgroups.enabled: false
 
 processors:
   - add_cloud_metadata: ~
