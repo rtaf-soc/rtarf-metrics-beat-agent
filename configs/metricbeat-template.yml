@@ -16,12 +16,14 @@ metricbeat.autodiscover:
 
 metricbeat.modules:
 - module: docker
+  processes: ['.*']
   metricsets:
     - "container"
     - "cpu"
     - "diskio"
     - "healthcheck"
     - "info"
+    - "process"
     #- "image"
     - "memory"
     - "network"
