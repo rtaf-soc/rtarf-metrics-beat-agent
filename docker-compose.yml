@@ -10,7 +10,7 @@ services:
     env_file:
       - .env
     volumes:
-      - $(pwd)/configs/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
+      - ${PWD}/configs/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
       - /proc:/hostfs/proc:ro
