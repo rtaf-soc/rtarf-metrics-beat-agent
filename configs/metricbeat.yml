@@ -32,4 +32,4 @@ processors:
 output.elasticsearch:
   hosts: '${ES_HOST:elasticsearch:9200}'
   username: '${ES_USER:}'
-  password: '${ES_PASSWORD:}
+  password: '${ES_PASSWORD:}'
