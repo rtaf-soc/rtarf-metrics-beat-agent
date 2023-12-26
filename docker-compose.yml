@@ -10,9 +10,9 @@ services:
       - /:/rootfs:ro
       - /etc/os-release:/etc/os-release
       - /var/run/docker.sock:/var/run/docker.sock
-      - /var/ossec/ossec.conf:/var/ossec/etc/ossec.conf
-      - /var/ossec/local_internal_options.conf:/var/ossec/etc/local_internal_options.conf
-      - /var/ossec/client.keys:/var/ossec/etc/client.keys
+      - ./configs/ossec.conf:/var/ossec/etc/ossec.conf
+      - ./configs/local_internal_options.conf:/var/ossec/etc/local_internal_options.conf
+      - ./configs/client.keys:/var/ossec/etc/client.keys
     env_file:
       - .env
       - .hostname
