@@ -9,6 +9,8 @@ services:
       - --strict.perms=false
     env_file:
       - .env
+    environment:
+      - HOSTNAME=${HOSTNAME}
     network_mode: "host"
     cap_add:
       - NET_RAW

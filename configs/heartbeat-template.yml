@@ -1,7 +1,7 @@
 heartbeat.monitors:
 - type: icmp
   id: ping-localhost
-  name: Localhost Ping
+  name: '${HOSTNAME}'
   hosts: ["localhost"]
   schedule: '*/5 * * * * * *'
 
