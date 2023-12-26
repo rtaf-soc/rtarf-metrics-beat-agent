@@ -11,7 +11,7 @@ sudo chown root:root ${MB_CFG_FILE}
 sudo chmod 600 ${MB_CFG_FILE}
 
 sudo cp ${HB_TPL_FILE} ${HB_CFG_FILE}
-sudo chown root:root ${HB_CFG_FILE}
+sudo chown heartbeat:heartbeat ${HB_CFG_FILE}
 sudo chmod 600 ${HB_CFG_FILE}
 
 sudo docker-compose down
