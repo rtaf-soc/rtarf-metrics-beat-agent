@@ -1,5 +1,18 @@
 version: '3'
 services:
+  wazuh-agent:
+    image: kennyopennix/wazuh-agent:4.0.4
+    privileged: true
+    user: root
+    network_mode: "host"
+    restart: always
+    volumes:
+      - /:/rootfs:ro
+      - /etc/os-release:/etc/os-release
+      - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - .env
+      - .hostname
   heartbeat:
     image: docker.elastic.co/beats/heartbeat:8.11.3
     user: heartbeat
