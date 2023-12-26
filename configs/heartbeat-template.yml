@@ -5,6 +5,10 @@ heartbeat.monitors:
   hosts: ["localhost"]
   schedule: '*/5 * * * * * *'
 
+processors:
+- add_host_metadata:
+    cache.ttl: 5m
+
 output.elasticsearch:
   hosts: '${ES_HOST}'
   username: '${ES_USER:}'
