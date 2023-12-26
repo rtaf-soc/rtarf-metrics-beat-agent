@@ -1,3 +1,9 @@
+heartbeat.monitors:
+- type: icmp
+  id: ping-localhost
+  name: Localhost Ping
+  hosts: ["localhost"]
+  schedule: '*/5 * * * * * *'
 
 output.elasticsearch:
   hosts: '${ES_HOST}'

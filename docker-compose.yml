@@ -9,6 +9,7 @@ services:
       - --strict.perms=false
     env_file:
       - .env
+    network_mode: "host"
     cap_add:
       - NET_RAW
     volumes:
