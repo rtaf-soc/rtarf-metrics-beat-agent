@@ -1,0 +1,7 @@
+
+output.elasticsearch:
+  hosts: '${ES_HOST}'
+  username: '${ES_USER:}'
+  password: '${ES_PASSWORD:}'
+  ssl:
+    verification_mode: "none"

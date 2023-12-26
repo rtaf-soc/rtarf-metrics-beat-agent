@@ -1,5 +1,20 @@
 version: '3'
 services:
+  heartbeat:
+    image: docker.elastic.co/beats/heartbeat:8.11.3
+    user: heartbeat
+    command:
+      - heartbeat
+      - -e
+      - --strict.perms=false
+    env_file:
+      - .env
+    cap_add:
+      - NET_RAW
+    volumes:
+      - ./configs/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml:ro
+    restart: always
+
   metricbeat:
     image: docker.elastic.co/beats/metricbeat:8.11.3
     privileged: true
@@ -10,8 +25,6 @@ services:
       - -system.hostfs=/hostfs
     env_file:
       - .env
-    #environment:
-    #  - DBUS_SYSTEM_BUS_ADDRESS='unix:path=/hostfs/var/run/dbus/system_bus_socket'
     network_mode: "host"
     volumes:
       - ./configs/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
