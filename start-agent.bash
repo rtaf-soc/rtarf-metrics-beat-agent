@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo ${HOSTNAME} > .hostname
+
 MB_TPL_FILE=configs/metricbeat-template.yml
 MB_CFG_FILE=configs/metricbeat.yml
 
